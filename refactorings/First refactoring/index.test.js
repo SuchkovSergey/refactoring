@@ -1,6 +1,6 @@
-import statement from './index';
+import getStatement from './index';
 
-describe('statement', () => {
+describe('getStatement', () => {
     it('works good', () => {
         const plays = {
             hamlet: {
@@ -42,6 +42,6 @@ describe('statement', () => {
             'Amount owed is $1,730.00\n' +
             'You earned 47 credits\n';
 
-        expect(statement(invoice, plays)).toBe(result);
+        expect(getStatement(invoice, plays)).toBe(result);
     });
 });
