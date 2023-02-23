@@ -17,8 +17,6 @@ export const PLAY_PROPERTIES_BY_TYPE = {
             }
             return result;
         },
-        getAdditionalCredits: (audience) => {
-            return Math.floor(audience / 5);
-        },
+        getAdditionalCredits: (audience) => Math.floor(audience / 5),
     },
 };

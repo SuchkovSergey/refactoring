@@ -24,7 +24,8 @@
     },
     "dependencies": {
         "@babel/preset-env": "^7.18.9",
-        "@testing-library/dom": "^8.19.0"
+        "@testing-library/dom": "^8.19.0",
+        "lodash": "^4.17.21"
     },
     "license": "ISC",
     "jest": {

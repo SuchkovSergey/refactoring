@@ -1,3 +1,3 @@
-## Martin Fowler. Refactoring
+## Martin Fowler. Refactoring solutions
 
-Repository for book solutions
+Repository for book custom solutions.
