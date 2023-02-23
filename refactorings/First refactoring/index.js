@@ -1,4 +1,5 @@
-import { formatCost, getPlayPropertiesByType, getPlayCost, getPlayCredits } from './utils';
+import { getPlayPropertiesByType, getPlayCost, getPlayCredits } from './utils';
+import { renderStatement } from './formatters';
 import _ from 'lodash';
 
 const getStatementData = (invoice, plays) => {
@@ -21,26 +22,9 @@ const getStatementData = (invoice, plays) => {
     };
 };
 
-const getFormattedStatement = (statementData) => {
-    const headerText = `Statement for ${statementData.customer}`;
-    const playsTexts = statementData.playsData.map((playData) => {
-        const { name, seatsAmount, cost } = playData;
-        return `  ${name}: ${formatCost(cost)}  (${seatsAmount} seats)`;
-    });
-    const owedAmountText = `Amount owed is ${formatCost(statementData.totalCost)}`;
-    const earnedText = `You earned ${statementData.totalCredits} credits\n`;
-
-    return [
-        headerText,
-        ...playsTexts,
-        owedAmountText,
-        earnedText,
-    ].join('\n');
-};
-
-const getStatement = (invoice, plays) => {
+const getStatement = (invoice, plays, formatType = 'plain') => {
     const statementData = getStatementData(invoice, plays);
-    return getFormattedStatement(statementData);
+    return renderStatement(statementData, formatType);
 };
 
 export default getStatement;
